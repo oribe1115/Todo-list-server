@@ -8,6 +8,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
 
+	"github.com/oribe1115/oribe-todo-list-server/handler"
 	"github.com/oribe1115/oribe-todo-list-server/model"
 )
 
@@ -21,7 +22,7 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World.\n")
 	})
-	// e.GET("create/table", handler.CreateTableHandler)
+	e.GET("create/table", handler.CreateTableHandler)
 
 	port := os.Getenv("PORT")
 	if port == "" {
