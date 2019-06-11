@@ -1,4 +1,4 @@
-module github.com/oribe1115/Todo-list-server
+module github.com/oribe1115/oribe-todo-list-server
 
 go 1.12
 

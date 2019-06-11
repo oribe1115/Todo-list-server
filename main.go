@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/labstack/echo"
-	"github.com/oribe1115/Todo-list-server/model"
+	"github.com/oribe1115/oribe-todo-list-server/model"
 )
 
 func main() {
