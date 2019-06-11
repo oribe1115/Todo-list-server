@@ -30,3 +30,14 @@ func AddNewTaskHandler(c echo.Context) error {
 
 	return c.String(http.StatusCreated, "new task is added")
 }
+
+func GetAllTasksHandler(c echo.Context) error {
+	tasklist, err := model.AllTasks()
+
+	if err != nil {
+		fmt.Println(err)
+		return c.String(http.StatusInternalServerError, "faild to get task list")
+	}
+
+	return c.JSON(http.StatusOK, tasklist)
+}

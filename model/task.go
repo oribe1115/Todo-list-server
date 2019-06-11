@@ -48,3 +48,12 @@ func AddNewTask(taskFromClinet TaskForClient) error {
 
 	return nil
 }
+
+func AllTasks() ([]TaskForClient, error) {
+	tasklist := []TaskForClient{}
+	err := db.Table(tableName).Select("id, name, finish, importance, hoverstar").Find(&tasklist).Error
+	if err != nil {
+		return nil, errors.New("faild to get task list")
+	}
+	return tasklist, nil
+}

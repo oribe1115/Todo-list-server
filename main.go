@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 
 	_ "github.com/jinzhu/gorm/dialects/postgres"
@@ -19,10 +18,8 @@ func main() {
 	}
 
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World.\n")
-	})
 	e.GET("create/table", handler.CreateTableHandler)
+	e.GET("/", handler.GetAllTasksHandler)
 	e.POST("/", handler.AddNewTaskHandler)
 
 	port := os.Getenv("PORT")
