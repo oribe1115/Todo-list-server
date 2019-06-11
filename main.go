@@ -23,6 +23,7 @@ func main() {
 		return c.String(http.StatusOK, "Hello, World.\n")
 	})
 	e.GET("create/table", handler.CreateTableHandler)
+	e.POST("/", handler.AddNewTaskHandler)
 
 	port := os.Getenv("PORT")
 	if port == "" {

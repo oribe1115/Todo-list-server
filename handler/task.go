@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo"
@@ -15,4 +16,17 @@ func CreateTableHandler(c echo.Context) error {
 		return c.String(http.StatusInternalServerError, "faild to craete table\n")
 	}
 	return c.String(http.StatusCreated, "tasks table created!\n")
+}
+
+func AddNewTaskHandler(c echo.Context) error {
+	taskFromClient := model.TaskForClient{}
+	c.Bind(&taskFromClient)
+
+	err := model.AddNewTask(taskFromClient)
+	if err != nil {
+		fmt.Println(err)
+		return c.String(http.StatusInternalServerError, "faild to add")
+	}
+
+	return c.String(http.StatusCreated, "new task is added")
 }
