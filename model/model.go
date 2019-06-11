@@ -12,6 +12,7 @@ var (
 	detabaseURL string
 )
 
+// DBとの接続
 func EstablishConnection() (*gorm.DB, error) {
 	detabaseURL = os.Getenv("DATABASE_URL")
 	_db, err := gorm.Open("postgres", detabaseURL)
