@@ -6,7 +6,7 @@ import (
 
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/v4/middleware"
+	"github.com/labstack/echo/middleware"
 
 	"github.com/oribe1115/oribe-todo-list-server/handler"
 	"github.com/oribe1115/oribe-todo-list-server/model"
