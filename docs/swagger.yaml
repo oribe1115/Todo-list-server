@@ -5,4 +5,70 @@ info:
   version: "1.0.0"
   title: "Todo-list-server API"
   termsOfService: "http://swagger.io/terms/"
+paths:
+  /:
+    get:
+      description: 全てのタスクの情報を返します
+      responses:
+        200:
+          description: 正常に取得できました
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/task"
+    post:
+      description: 新規タスクを追加します
+      requestBody:
+        content:
+         application/json:
+          schema:
+            $ref: "#/components/schemas/task"
+      responses:
+        200:
+          description: 正常に投稿できました
+  /{id}:
+    parameters:
+      - $ref: "#/components/parameters/idInPath"
+    put:
+      description: タスクの情報を更新します
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/task"
+      responses:
+        200:
+          description: 正常に更新できました
+    delete:
+      responses:
+        200:
+          description: 正常に削除できました                
+                                           
+
+components:
+  schemas:
+    task:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        finish:
+          type: boolean
+        importance:
+          type: integer
+        hoverstar:
+          type: integer
+  parameters:
+    idInPath:
+      name: id
+      description: タスクのid
+      in: path
+      required: true
+      schema:
+        type: integer
+    
  
