@@ -5,7 +5,9 @@ import (
 	"net/http"
 	"os"
 
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
+
 	"github.com/oribe1115/oribe-todo-list-server/model"
 )
 
