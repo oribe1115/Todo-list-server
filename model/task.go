@@ -17,7 +17,7 @@ type Task struct {
 type TaskForClient struct {
 	ID         int    `json:"id,omitempty"`
 	Name       string `json:"name,omitempty"`
-	Finish     bool   `json:"finish,omitempty"`
+	Finish     bool   `json:"finish"`
 	Importance int    `json:"importance,omitempty"`
 	Hoverstar  int    `json:"hoverstar,omitempty"`
 }
