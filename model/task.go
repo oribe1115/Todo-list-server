@@ -57,3 +57,18 @@ func AllTasks() ([]TaskForClient, error) {
 	}
 	return tasklist, nil
 }
+
+func ChangeStatus(taskFromClient TaskForClient) error {
+	taskData := Task{}
+	err := db.Table(tableName).Where("id = ?", taskFromClient.ID).Find(&taskData).Error
+	if err != nil {
+		return errors.New("faild to search with this id")
+	}
+
+	taskData.TaskForClient = taskFromClient
+	err = db.Save(&taskData).Error
+	if err != nil {
+		return errors.New("faild to update")
+	}
+	return nil
+}

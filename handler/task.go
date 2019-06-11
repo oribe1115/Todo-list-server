@@ -41,3 +41,14 @@ func GetAllTasksHandler(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, tasklist)
 }
+
+func ChangeStatusFandler(c echo.Context) error {
+	task := model.TaskForClient{}
+	c.Bind(&task)
+	err := model.ChangeStatus(task)
+	if err != nil {
+		fmt.Println(err)
+		return c.String(http.StatusInternalServerError, "faild to change status")
+	}
+	return c.String(http.StatusOK, "task is updated")
+}

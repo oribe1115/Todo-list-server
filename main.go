@@ -21,6 +21,7 @@ func main() {
 	e.GET("create/table", handler.CreateTableHandler)
 	e.GET("/", handler.GetAllTasksHandler)
 	e.POST("/", handler.AddNewTaskHandler)
+	e.PUT("/{id}", handler.ChangeStatusFandler)
 
 	port := os.Getenv("PORT")
 	if port == "" {
