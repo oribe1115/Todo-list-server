@@ -11,19 +11,19 @@ var (
 
 type Task struct {
 	TaskForClient
-	CreatedAt time.Time `json:"created_at,omitempty"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 type TaskForClient struct {
-	ID uint `gorm:"primary_key" json:"id,omitempty"`
+	ID int `gorm:"primary_key" json:"id"`
 	TaskToAdd
 }
 
 type TaskToAdd struct {
-	Name       string `json:"name,omitempty"`
+	Name       string `json:"name"`
 	Finish     bool   `json:"finish"`
-	Importance int    `json:"importance,omitempty"`
-	Hoverstar  int    `json:"hoverstar,omitempty"`
+	Importance int    `json:"importance"`
+	Hoverstar  int    `json:"hoverstar"`
 }
 
 func CreateTable() error {
