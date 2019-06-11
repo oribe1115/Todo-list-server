@@ -1,1 +1,1 @@
-web: bin/Todo-list-server
+web: bin/oribe-todo-list-server
