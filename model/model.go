@@ -21,5 +21,7 @@ func EstablishConnection() (*gorm.DB, error) {
 	}
 	db = _db
 
+	tableName = "tasks"
+
 	return db, nil
 }

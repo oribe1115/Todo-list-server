@@ -28,8 +28,6 @@ func CreateTable() error {
 		return err
 	}
 
-	tableName = "tasks"
-
 	return err
 }
 
