@@ -9,13 +9,13 @@ import (
 
 var (
 	db          *gorm.DB
-	detabaseURL string
+	databaseURL string
 )
 
 // DBとの接続
 func EstablishConnection() (*gorm.DB, error) {
-	detabaseURL = os.Getenv("DATABASE_URL")
-	_db, err := gorm.Open("postgres", detabaseURL)
+	databaseURL = os.Getenv("DATABASE_URL")
+	_db, err := gorm.Open("postgres", databaseURL)
 	if err != nil {
 		return nil, errors.New("faild to connect to DB")
 	}
