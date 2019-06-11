@@ -5,6 +5,11 @@ import (
 )
 
 type Task struct {
+	TaskForClient
+	CreatedAt time.Time `json:"created_at,omitempty"`
+}
+
+type TaskForClient struct {
 	ID         int    `json:"id,omitempty"`
 	Name       string `json:"name,omitempty"`
 	Finish     bool   `json:"finish,omitempty"`
@@ -12,13 +17,8 @@ type Task struct {
 	Hoverstar  int    `json:"hoverstar,omitempty"`
 }
 
-type TaskInDB struct {
-	Task
-	CreatedAt time.Time `json:"created_at,omitempty"`
-}
-
 func CreateTable() error {
-	err := db.CreateTable(&TaskInDB{}).Error
+	err := db.CreateTable(&Task{}).Error
 	if err != nil {
 		return err
 	}
