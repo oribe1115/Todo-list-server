@@ -15,7 +15,11 @@ type Task struct {
 }
 
 type TaskForClient struct {
-	ID         int    `json:"id,omitempty"`
+	ID uint `gorm:"primary_key" json:"id,omitempty"`
+	TaskToAdd
+}
+
+type TaskToAdd struct {
 	Name       string `json:"name,omitempty"`
 	Finish     bool   `json:"finish"`
 	Importance int    `json:"importance,omitempty"`
@@ -31,9 +35,9 @@ func CreateTable() error {
 	return err
 }
 
-func AddNewTask(taskFromClinet TaskForClient) error {
+func AddNewTask(taskFromClinet TaskToAdd) error {
 	newTask := Task{}
-	newTask.TaskForClient = taskFromClinet
+	newTask.TaskToAdd = taskFromClinet
 
 	jst := time.FixedZone("Asia/Tokyo", 9*60*60)
 	newTask.CreatedAt = time.Now().In(jst)

@@ -19,7 +19,7 @@ func CreateTableHandler(c echo.Context) error {
 }
 
 func AddNewTaskHandler(c echo.Context) error {
-	taskFromClient := model.TaskForClient{}
+	taskFromClient := model.TaskToAdd{}
 	c.Bind(&taskFromClient)
 
 	err := model.AddNewTask(taskFromClient)
