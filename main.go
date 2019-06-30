@@ -20,7 +20,7 @@ func main() {
 
 	e := echo.New()
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins:     []string{"http://localhost:8080", "https://oribe1115-todolist.netlify.com/"},
+		AllowOrigins:     []string{"http://localhost:8080", "https://oribe1115-todolist.netlify.com"},
 		AllowCredentials: true,
 	}))
 
