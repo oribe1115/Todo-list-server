@@ -24,7 +24,7 @@ func main() {
 		AllowCredentials: true,
 	}))
 
-	e.GET("create/table", handler.CreateTableHandler)
+	e.GET("/create/table", handler.CreateTableHandler)
 	e.GET("/", handler.GetAllTasksHandler)
 	e.POST("/", handler.AddNewTaskHandler)
 	e.PUT("/:id", handler.ChangeStatusFandler)
